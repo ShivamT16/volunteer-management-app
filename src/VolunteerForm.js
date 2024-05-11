@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom"
 export const VolunteerForm = () => {
     const {id} = useParams()
     const dispatch = useDispatch()
+    const events = useSelector((state) => state.events.events)
+
     const volunteers = useSelector((state) => state.volunteers.volunteers)
     const volunteer = volunteers.find((v) => v._id === id) 
     const [newVolunteer, setNewVolunteer] = useState({
@@ -14,6 +16,7 @@ export const VolunteerForm = () => {
     skills: volunteer ? volunteer.skills : "",
     availability: volunteer ? volunteer.availability : "",
     areaOfInterest: volunteer ? volunteer.areaOfInterest : "",
+    eventAssigned: volunteer ? volunteer.eventAssigned : []
     })
 
     const handleChange = (e) => {
@@ -22,10 +25,20 @@ export const VolunteerForm = () => {
         setNewVolunteer({...newVolunteer, [name]: value })
     }
 
+    const handleChangeEvent = (e) => {
+      newVolunteer.eventAssigned.includes(e.target.value) ?
+      setNewVolunteer({...newVolunteer, eventAssigned: newVolunteer.eventAssigned.filter((event) => event !== e.target.value)}) :
+      setNewVolunteer({...newVolunteer, eventAssigned: [...newVolunteer.eventAssigned, e.target.value] })
+    }
+
     const handleSubmit = () => {
         volunteer ? 
         dispatch(updateVolunteer({id: volunteer._id, updatedData: newVolunteer})) :
         dispatch(addVolunteer(newVolunteer))
+
+        // volunteer ? 
+        // console.log({id: volunteer._id, updatedData: newVolunteer}) :
+        // console.log(newVolunteer)
     }
 
     return(
@@ -39,7 +52,14 @@ export const VolunteerForm = () => {
                <option value= "false" >No</option>
             </select>
             <input type="text" name="areaOfInterest" value={newVolunteer.areaOfInterest} onChange={handleChange} placeholder="Area of Interest" autoComplete="off" />
-    
+                
+                {events.map((e) => 
+                    <div key={e._id}>
+                    <input type="checkbox" name="eventAssigned" value={e.eventName} onChange={handleChangeEvent}  />
+                    {e.eventName}
+                    </div> 
+                )}
+
             <button onClick={handleSubmit} >{ volunteer ? "Update Volunteer" : "Add New Volunteer"}</button>
         </div>
     )

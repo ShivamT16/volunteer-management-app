@@ -36,6 +36,7 @@ export const EventForm = ()=> {
             <input type="text" name="description" value={newEvent.description} onChange={handleChange} autoComplete="off" placeholder="Description"  />
             <input type="text" name="location" value={newEvent.location} onChange={handleChange} autoComplete="off" placeholder="Location" />
             <input type="Number" name="requirement" value={newEvent.requirement} onChange={handleChange} autoComplete="off" placeholder="Volunteer Required" />
+           
             <button onClick={handleSubmit}>{event ? "Update Event" : "Add New Event"}</button>
         </div>
     )

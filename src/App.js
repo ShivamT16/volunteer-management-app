@@ -5,20 +5,22 @@ import { BrowserRouter as Router, NavLink, Route, Routes } from 'react-router-do
 import { VolunteerForm } from './VolunteerForm';
 import { EventView } from './EventView';
 import { EventForm } from './EventForm';
+import { EventSummary } from './EventSummary';
 
 function App() {
   return (
     <div className="App">
-      <h2>We will learn Redux toolkit</h2>
       <Router>
 
       <nav>
-        <NavLink to="/" >Volunteers</NavLink>
+        <NavLink to="/" >Dashboard</NavLink>
+        <NavLink to="/volunteers" >Volunteers</NavLink>
         <NavLink to="/events">Events</NavLink>
       </nav>
 
       <Routes>
-        <Route path="/" element={<VolunteerView />} />
+        <Route path="/" element={<EventSummary />} />
+        <Route path="/volunteers" element={<VolunteerView />} />
         <Route path="/volunteers/add" element={<VolunteerForm />} />
         <Route path="/volunteers/update/:id" element={<VolunteerForm />} />
         <Route path="/events" element={<EventView />} />

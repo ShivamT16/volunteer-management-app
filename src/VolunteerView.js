@@ -27,7 +27,8 @@ export const VolunteerView = () => {
             <div key={item._id} >
              {item.volunteerName} || 
              {item.availability ? "true" : "false"} ||
-             {item.skills}
+             {item.skills} ||
+             {item.eventAssigned.join(" | ")}
              <button onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
              <Link to={`/volunteers/update/${item._id}`} ><button>Edit</button></Link>
             </div>
