@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchEvents } from "./eventSlice"
-import { fetchVolunteers } from "./volunteerSlice"
-import ReactSelect from "react-select"
+import { fetchEvents } from "../event/eventSlice"
+import { fetchVolunteers } from "../volunteer/volunteerSlice"
+import { Link } from "react-router-dom"
 
 export const EventSummary = () => {
     const dispatch = useDispatch()
@@ -22,13 +22,13 @@ export const EventSummary = () => {
             <h2>Event Summary</h2>
             {status === 'loading' && <h2>Loading...</h2> }
             {status === 'error' && <h2>{error}</h2> }
+
             {events.map((item) => 
             <div key={item._id}>
-                {item.eventName} || {item.description} || {item.location}
+                <Link to={`/event/${item.eventName}`} > {item.eventName} || {item.description} || {item.location} </Link>
             </div>
             )}
-        <form>
-      </form>
+
         </div>
     )
 }

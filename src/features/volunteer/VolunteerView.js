@@ -25,10 +25,12 @@ export const VolunteerView = () => {
             {
             volunteers.map((item) => 
             <div key={item._id} >
+             <Link to={`/volunteerDetail/${item._id}`} >
              {item.volunteerName} || 
              {item.availability ? "true" : "false"} ||
              {item.skills} ||
              {item.eventAssigned.join(" | ")}
+             </Link>
              <button onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
              <Link to={`/volunteers/update/${item._id}`} ><button>Edit</button></Link>
             </div>
