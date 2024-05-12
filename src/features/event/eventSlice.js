@@ -4,7 +4,7 @@ import axios from "axios"
 export const fetchEvents = createAsyncThunk(
     'event/fetchEvents',
     async () => {
-        const response = await axios.get("https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/events",)
+        const response = await axios.get("https://volunteer-management-app-six.vercel.app/events",)
         return response.data
     }
 )
@@ -12,7 +12,7 @@ export const fetchEvents = createAsyncThunk(
 export const addEvent = createAsyncThunk(
     'event/addEvent',
     async (newEvent) => {
-        const response = await axios.post("https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/events",
+        const response = await axios.post("https://volunteer-management-app-six.vercel.app/events",
             newEvent
         )
         return response.data
@@ -22,7 +22,7 @@ export const addEvent = createAsyncThunk(
 export const updateEvent = createAsyncThunk(
     'event/updateEvent',
     async ({id, updatedData}) => {
-        const response = await axios.post(`https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/events/${id}`,
+        const response = await axios.post(`https://volunteer-management-app-six.vercel.app/events/${id}`,
             updatedData
         )
         return response.data
@@ -32,7 +32,7 @@ export const updateEvent = createAsyncThunk(
 export const deleteEvent = createAsyncThunk(
     'event/deleteEvent',
     async (id) => {
-        const response = await axios.delete(`https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/events/${id}`)
+        const response = await axios.delete(`https://volunteer-management-app-six.vercel.app/events/${id}`)
         return response.data
     }
 )

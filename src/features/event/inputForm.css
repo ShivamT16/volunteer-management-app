@@ -1,0 +1,31 @@
+.input-Main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 1% 22%;
+    padding: 1% 12%;
+}
+.input{
+   padding: .8%;
+   margin: .5% .8%;
+   font-size: 1rem;
+}
+.submit-btn{
+    margin: .4% 12%;
+    padding: .3rem ;
+}
+.eventInput{
+    display: flex;
+    font-size: 1rem;
+    background-color: white;
+    margin: 0.5% 0.5%;
+    padding: .8%;
+}
+.label{
+    font-size: large;
+    text-align: left;
+    background-color: white;
+    border: 1px solid black;
+    margin: 0.5% 0.5%;
+    padding: .8%;
+}

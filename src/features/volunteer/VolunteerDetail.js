@@ -1,26 +1,26 @@
-import { useDispatch, useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom"
-import { deleteVolunteer } from "./volunteerSlice"
+import { useSelector } from "react-redux"
+import { useNavigate, useParams } from "react-router-dom"
 
 export const VolunteerDetail = () => {
     const {id} = useParams()
-    const dispatch = useDispatch()
+    const navigate = useNavigate()
     const volunteers = useSelector((state) => state.volunteers.volunteers )
 
     return(
-        <div>
-            <h2>V Detail</h2>
+        <div className="event-Main">
+            <h2>Volunteer Details</h2>
             {
              volunteers.filter((event) => event._id === id ).map((item) =>
-             <div>
-                {item.volunteerName} ||
-                {item.availability ? "true" : "false"} ||
-                {item.skills} ||
-                {item.eventAssigned.join(" | ")}
-                <button onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
-                <Link to={`/volunteers/update/${item._id}`} ><button>Edit</button></Link>
+             <div className="event-list" key={item._id} >
+                <p>Volunteer Name - {item.volunteerName}</p>
+                <p>Skills - {item.skills} </p>
+                <p>Area of Interest - {item.areaOfInterest} </p>
+                <p>Volunteering in Events - {item.eventAssigned} </p>
+                <p>Contact - {item.contactNumber} </p>
+                <p>Volunteer available - {item.availability ? "Yes" : "No"} </p>
              </div>   
             )}
+            <button className="button" onClick={() => navigate(-1) } >Back</button>
         </div>
     )
 }

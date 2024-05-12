@@ -35,32 +35,28 @@ export const VolunteerForm = () => {
         volunteer ? 
         dispatch(updateVolunteer({id: volunteer._id, updatedData: newVolunteer})) :
         dispatch(addVolunteer(newVolunteer))
-
-        // volunteer ? 
-        // console.log({id: volunteer._id, updatedData: newVolunteer}) :
-        // console.log(newVolunteer)
     }
 
     return(
-        <div>
-            <input type="text" name="volunteerName" value={newVolunteer.volunteerName} onChange={handleChange} placeholder="Full Name" autoComplete="off" />
-            <input type="Number" name="contactNumber" value={newVolunteer.contactNumber} onChange={handleChange} placeholder="Contact Number" autoComplete="off" />
-            <input type="text" name="skills" value={newVolunteer.skills} onChange={handleChange} placeholder="Skills" autoComplete="off" />
-            <select name="availability" value={newVolunteer.availability} onChange={handleChange} autoComplete="off" >
-               <option>Availability</option>
+        <div className="input-Main">
+            <h2>Add New Volunteer</h2>
+            <input className="input" type="text" name="volunteerName" value={newVolunteer.volunteerName} onChange={handleChange} placeholder="Full Name" autoComplete="off" />
+            <input className="input" type="Number" name="contactNumber" value={newVolunteer.contactNumber} onChange={handleChange} placeholder="Contact Number" autoComplete="off" />
+            <input className="input" type="text" name="skills" value={newVolunteer.skills} onChange={handleChange} placeholder="Skills" autoComplete="off" />
+            <select className="input" name="availability" value={newVolunteer.availability} onChange={handleChange} autoComplete="off" >
+               <option>Volunteer available</option>
                <option value= "true" >Yes</option>
                <option value= "false" >No</option>
             </select>
-            <input type="text" name="areaOfInterest" value={newVolunteer.areaOfInterest} onChange={handleChange} placeholder="Area of Interest" autoComplete="off" />
-                
+            <input className="input" type="text" name="areaOfInterest" value={newVolunteer.areaOfInterest} onChange={handleChange} placeholder="Area of Interest" autoComplete="off" />
+            <p className="label" >Assign event below-</p>    
                 {events.map((e) => 
-                    <div key={e._id}>
+                    <div className="eventInput" key={e._id}>
                     <input type="checkbox" name="eventAssigned" value={e.eventName} onChange={handleChangeEvent}  />
                     {e.eventName}
                     </div> 
                 )}
-
-            <button onClick={handleSubmit} >{ volunteer ? "Update Volunteer" : "Add New Volunteer"}</button>
+            <button className="submit-btn" onClick={handleSubmit} >{ volunteer ? "Update Volunteer" : "Add New Volunteer"}</button>
         </div>
     )
 }

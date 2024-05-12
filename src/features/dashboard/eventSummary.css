@@ -1,0 +1,38 @@
+.event-Main{
+    margin: 1% 18%;
+    padding-bottom: 1rem;
+}
+.event-List{
+    display: flex;
+    text-align: left;
+    font-size: 1.2rem;
+    margin: 2% 5%;
+    padding: 1% 1.5%;
+    border-left: 2px solid black;
+    background-color: white
+}
+.event-list{
+    text-align: left;
+    font-size: 1.2rem;
+    margin: 2% 5%;
+    padding: 1% 1.5%;
+    border-left: 2px solid black;
+    background-color: white
+}
+.link{
+    text-decoration: none;
+    color: black;
+}
+.Link{
+    text-decoration: none;
+    color: black;
+    width: 40rem;
+}
+.button{
+    padding: 0.1rem .4rem;
+    margin: 0.2rem 0.3rem;
+    cursor: pointer;
+}
+.add-btn{
+    text-decoration: none;
+}

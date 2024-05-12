@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { addEvent, updateEvent } from "./eventSlice"
+import "./inputForm.css"
 
 export const EventForm = ()=> {
     const {id} = useParams()
@@ -30,14 +31,14 @@ export const EventForm = ()=> {
     }
 
     return(
-        <div>
-            <input type="text" name="eventName" value={newEvent.eventName} onChange={handleChange} autoComplete="off" placeholder="Event Name" />
-            <input type="date" name="date" value={newEvent.date} onChange={handleChange} autoComplete="off"  />
-            <input type="text" name="description" value={newEvent.description} onChange={handleChange} autoComplete="off" placeholder="Description"  />
-            <input type="text" name="location" value={newEvent.location} onChange={handleChange} autoComplete="off" placeholder="Location" />
-            <input type="Number" name="requirement" value={newEvent.requirement} onChange={handleChange} autoComplete="off" placeholder="Volunteer Required" />
-           
-            <button onClick={handleSubmit}>{event ? "Update Event" : "Add New Event"}</button>
+        <div className="input-Main">
+            <h2>Add New Event</h2>
+            <input className="input" type="text" name="eventName" value={newEvent.eventName} onChange={handleChange} autoComplete="off" placeholder="Event Name" />
+            <input className="input" type="date" name="date" value={newEvent.date} onChange={handleChange} autoComplete="off"  />
+            <input className="input" type="text" name="description" value={newEvent.description} onChange={handleChange} autoComplete="off" placeholder="Description"  />
+            <input className="input" type="text" name="location" value={newEvent.location} onChange={handleChange} autoComplete="off" placeholder="Location" />
+            <input className="input" type="Number" name="requirement" value={newEvent.requirement} onChange={handleChange} autoComplete="off" placeholder="Volunteer Required" /> 
+            <button className="submit-btn" onClick={handleSubmit}>{event ? "Update Event" : "Add New Event"}</button>
         </div>
     )
 }

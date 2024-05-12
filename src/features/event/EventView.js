@@ -16,14 +16,21 @@ export const EventView = () => {
     }, [dispatch, status] )
 
     return(
-        <div>
+        <div className="event-Main">
             <h2>Event View</h2>
-            <Link to="/events/add">Add New Event</Link>
+
+            {status === 'loading' && <h3>Loading...</h3> }
+            {status === 'error' && <h3> {error} </h3> }
+            
+            <Link className="add-btn" to="/events/add"><h3>Add New Event</h3></Link>
+
             {events.map((item) => 
-            <div key={item._id}>
-                {item.eventName} || {item.location} || {item.description} || {item.requirement} Volunteer
-                <button onClick={() => dispatch(deleteEvent(item._id)) } >Delete </button>
-                <Link to={`/events/update/${item._id}`} ><button>Edit</button></Link>
+            <div className="event-List" key={item._id}>
+                <Link className="Link" to={`/event/${item.eventName}`} >
+                {item.eventName} - {item.description} || {item.requirement} Volunteer Required
+                </Link>
+                <button className="button" onClick={() => dispatch(deleteEvent(item._id)) } >Delete </button>
+                <Link to={`/events/update/${item._id}`} ><button className="button" >Edit</button></Link>
             </div>
             )}
         </div>

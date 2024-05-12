@@ -5,24 +5,24 @@ export const EventDetail = () => {
     const {eventName} = useParams()
     const events = useSelector((state) => state.events.events)
     const volunteers = useSelector((state) => state.volunteers.volunteers )
-
+    
     return(
-        <div>
-            <h2>Detail</h2>
+        <div className="event-Main">
+            <h2>Event Details</h2>
             {events.filter((event) => event.eventName.includes(eventName)).map((item) => 
-            <div key={item._id}>
-                {item.eventName} || {item.location} || {item.description} || {item.requirement} Volunteer
+            <div className="event-list" key={item._id}>
+                <p>Event Name - {item.eventName}</p> 
+                <p>Description - {item.description}</p>
+                <p>Location - {item.location} </p>
+                <p>Volunteer required - {item.requirement} </p>
             </div>
             )}
-            <h3>Registered Volunteers for this event- </h3>
+            <h2>Registered volunteers for this event- </h2>
             {
              volunteers.filter((event) => event.eventAssigned.includes(eventName)).map((item) =>
-             <div>
-                <Link to={`/volunteerDetail/${item._id}`} >
-                {item.volunteerName} ||
-                {item.availability ? "true" : "false"} ||
-                {item.skills} ||
-                {item.eventAssigned.join(" | ")}
+             <div className="event-List"  >
+                <Link className="link" to={`/volunteerDetail/${item._id}`} >
+                <p> Name - {item.volunteerName} , Skills - {item.skills} , Events - {item.eventAssigned.join(" | ")} -- <span style={{ color: item.availability ? "green" : "red"}} >{item.availability ? "Available" : "Not available"} </span> </p>
                 </Link>
              </div>   
             )}

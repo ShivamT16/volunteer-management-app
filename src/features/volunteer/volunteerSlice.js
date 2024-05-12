@@ -4,7 +4,7 @@ import axios from "axios"
 export const fetchVolunteers = createAsyncThunk(
     'volunteer/fetchVolunteers',
     async () => {
-        const response = await axios.get("https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/volunteers",)
+        const response = await axios.get("https://volunteer-management-app-six.vercel.app/volunteers",)
         return response.data
     }
 )
@@ -12,7 +12,7 @@ export const fetchVolunteers = createAsyncThunk(
 export const addVolunteer = createAsyncThunk(
     'volunteer/addVolunteer',
     async (newVolunteer) => {
-        const response = await axios.post("https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/volunteers",
+        const response = await axios.post("https://volunteer-management-app-six.vercel.app/volunteers",
             newVolunteer
         )
         return response.data
@@ -22,7 +22,7 @@ export const addVolunteer = createAsyncThunk(
 export const updateVolunteer = createAsyncThunk(
     'volunteer/updateVolunteer',
     async ({id, updatedData}) => {
-        const response = await axios.post(`https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/volunteers/${id}`,
+        const response = await axios.post(`https://volunteer-management-app-six.vercel.app/volunteers/${id}`,
             updatedData
         )
         return response.data
@@ -32,7 +32,7 @@ export const updateVolunteer = createAsyncThunk(
 export const deleteVolunteer = createAsyncThunk(
     'volunteer/deleteVolunteer',
     async (id) => {
-        const response = await axios.delete(`https://387a8059-3923-4337-9a50-21157b544a01-00-1sgspvqiuj4tj.spock.replit.dev/volunteers/${id}`)
+        const response = await axios.delete(`https://volunteer-management-app-six.vercel.app/volunteers/${id}`)
         return response.data
     }
 )

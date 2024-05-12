@@ -16,27 +16,25 @@ export const VolunteerView = () => {
     }, [dispatch, status])
 
     return(
-        <div>
+        <div className="event-Main">
             <h2> Volunteer View </h2>
 
             {status === 'loading' && <h3>Loading...</h3> }
             {status === 'error' && <h3> {error} </h3> }
-            <Link to="/volunteers/add" >Add New Volunteer</Link>
+            
+            <Link className="add-btn" to="/volunteers/add" ><h3>Add New Volunteer</h3></Link>
+
             {
             volunteers.map((item) => 
-            <div key={item._id} >
-             <Link to={`/volunteerDetail/${item._id}`} >
-             {item.volunteerName} || 
-             {item.availability ? "true" : "false"} ||
-             {item.skills} ||
-             {item.eventAssigned.join(" | ")}
+            <div className="event-List" key={item._id} >
+             <Link className="Link" to={`/volunteerDetail/${item._id}`} >
+             Name - {item.volunteerName} || Skills - {item.skills} || Event - {item.eventAssigned.join(" | ")}
              </Link>
-             <button onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
-             <Link to={`/volunteers/update/${item._id}`} ><button>Edit</button></Link>
+             <button className="button" onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
+             <Link to={`/volunteers/update/${item._id}`} ><button className="button" >Edit</button></Link>
             </div>
             )
         }
         </div>
-        
     )
 }

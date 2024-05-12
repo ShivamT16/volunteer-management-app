@@ -13,11 +13,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-
       <nav>
-        <NavLink to="/" >Dashboard</NavLink>
-        <NavLink to="/volunteers" >Volunteers</NavLink>
-        <NavLink to="/events">Events</NavLink>
+        <h2>Event Management Portal </h2>
+        <NavLink className="navLink" to="/" >Dashboard</NavLink>
+        <NavLink className="navLink" to="/volunteers" >Volunteers</NavLink>
+        <NavLink className="navLink" to="/events">Events</NavLink>
+        <NavLink className="navLink" to="" >GitHub</NavLink>
       </nav>
 
       <Routes>
