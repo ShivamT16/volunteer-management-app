@@ -18,7 +18,7 @@ function App() {
         <NavLink className="navLink" to="/" >Dashboard</NavLink>
         <NavLink className="navLink" to="/volunteers" >Volunteers</NavLink>
         <NavLink className="navLink" to="/events">Events</NavLink>
-        <NavLink className="navLink" to="" >GitHub</NavLink>
+        <NavLink className="navLink" to="https://github.com/ShivamT16/volunteer-management-app" target="_blank" >GitHub</NavLink>
       </nav>
 
       <Routes>

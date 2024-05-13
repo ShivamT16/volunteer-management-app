@@ -13,7 +13,9 @@ export const EventDetail = () => {
             <div className="event-list" key={item._id}>
                 <p>Event Name - {item.eventName}</p> 
                 <p>Description - {item.description}</p>
+                <p>Date - {item.date.split("-").reverse().join("-")} </p>
                 <p>Location - {item.location} </p>
+                <p>Volunteer's Role - {item.volunteerRole}  </p>
                 <p>Volunteer required - {item.requirement} </p>
             </div>
             )}

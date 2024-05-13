@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addVolunteer, updateVolunteer } from "./volunteerSlice"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const VolunteerForm = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const events = useSelector((state) => state.events.events)
 
@@ -32,9 +35,17 @@ export const VolunteerForm = () => {
     }
 
     const handleSubmit = () => {
-        volunteer ? 
+
+        if(!newVolunteer.volunteerName || !newVolunteer.contactNumber || !newVolunteer.skills || !newVolunteer.availability || !newVolunteer.areaOfInterest){
+            toast.warn("All fields are required")
+        }
+        else 
+        {
+            volunteer ? 
         dispatch(updateVolunteer({id: volunteer._id, updatedData: newVolunteer})) :
         dispatch(addVolunteer(newVolunteer))
+        navigate("/volunteers")
+        }
     }
 
     return(
@@ -57,6 +68,7 @@ export const VolunteerForm = () => {
                     </div> 
                 )}
             <button className="submit-btn" onClick={handleSubmit} >{ volunteer ? "Update Volunteer" : "Add New Volunteer"}</button>
+            <ToastContainer autoClose={2000} />
         </div>
     )
 }

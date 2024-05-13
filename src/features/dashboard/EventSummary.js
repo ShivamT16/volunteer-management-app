@@ -28,8 +28,8 @@ export const EventSummary = () => {
 
             {events.map((item) => 
             <div className="event-List" key={item._id}>
-                <Link className="link" to={`/event/${item.eventName}`} > 
-                {item.eventName} - {item.description} on "{item.date.split("-").reverse().join("-")}" 
+                <Link className="Link" to={`/event/${item.eventName}`} > 
+                {item.eventName} - {item.description} on <span style={{color: "blue"}} >"{item.date.split("-").reverse().join("-")}"</span> 
                 <span style={{color:"red", paddingLeft: "2%", fontSize: "1rem"}} > {item.date < todayDate ? "Event expired" : "" } </span>
                 </Link>
             </div>
