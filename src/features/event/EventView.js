@@ -29,7 +29,7 @@ export const EventView = () => {
                 <Link className="Link" to={`/event/${item.eventName}`} >
                 {item.eventName} - {item.description} || {item.requirement} Volunteer Required
                 </Link>
-                <button className="button" onClick={() => dispatch(deleteEvent(item._id)) } >Delete </button>
+                <Link><button className="button" onClick={() => dispatch(deleteEvent(item._id)) } >Delete </button></Link>
                 <Link to={`/events/update/${item._id}`} ><button className="button" >Edit</button></Link>
             </div>
             )}

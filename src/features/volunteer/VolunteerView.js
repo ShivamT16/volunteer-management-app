@@ -30,7 +30,7 @@ export const VolunteerView = () => {
              <Link className="Link" to={`/volunteerDetail/${item._id}`} >
              Name - {item.volunteerName} || Skills - {item.skills} || Event - {item.eventAssigned.join(" | ")}
              </Link>
-             <button className="button" onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button>
+             <Link><button className="button" onClick={() => dispatch(deleteVolunteer(item._id)) } >Delete</button></Link>
              <Link to={`/volunteers/update/${item._id}`} ><button className="button" >Edit</button></Link>
             </div>
             )

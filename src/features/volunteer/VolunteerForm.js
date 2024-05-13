@@ -35,8 +35,7 @@ export const VolunteerForm = () => {
     }
 
     const handleSubmit = () => {
-
-        if(!newVolunteer.volunteerName || !newVolunteer.contactNumber || !newVolunteer.skills || !newVolunteer.availability || !newVolunteer.areaOfInterest){
+        if(!newVolunteer.volunteerName || !newVolunteer.contactNumber || !newVolunteer.skills || !newVolunteer.areaOfInterest){
             toast.warn("All fields are required")
         }
         else 
